@@ -1,16 +1,16 @@
 import BachesDataAcces from "./BachesDataAcces.js";
 
-class TipoObjetoDataStore extends BachesDataAcces {
+class EstadoDataStore extends BachesDataAcces {
 	constructor(){
 		super();
 	}
 	findRange(_first=0,_pageSize=50){
-		let promesa=fetch(`${this.BASE_URL}tipoobjeto/${_first}/${_pageSize}`);
+		let promesa=fetch(`${this.BASE_URL}estado/${_first}/${_pageSize}`);
 		return promesa;
 	}
 
 	async contar(){
-		let promesa=fetch(this.BASE_URL+"tipoobjeto/contar",
+		let promesa=fetch(this.BASE_URL+"estado/contar",
 			{method:"GET"}
 		);
 		await promesa.then(respuesta=>respuesta.json())
@@ -20,7 +20,7 @@ class TipoObjetoDataStore extends BachesDataAcces {
 	}
 }
 
-export default TipoObjetoDataStore;
+export default EstadoDataStore;
 console.log("antes de contar");
 let t=new TipoObjetoDataStore();
 t.contar();

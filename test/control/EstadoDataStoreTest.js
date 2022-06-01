@@ -1,9 +1,9 @@
-import TipoObjetoDataStore from "../../js/control/TipoObjetoDataStore.js";
+import EstadoDataStore from "../../js/control/EstadoDataStore.js";
 
-describe("TipoObjetoDataStore",function(){
+describe("EstadoDataStore",function(){
 	var cut;
 	it ("Deberia instanciarse",function(){
-		cut= new TipoObjetoDataStore();
+		cut= new EstadoDataStore();
 		assert.isDefined(cut,"El objeto no esta instanciado");
 	});
 	it ("Deberia buscar primeros 50",function(){
