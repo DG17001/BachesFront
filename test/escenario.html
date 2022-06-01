@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<h1>Primero</h1>
+	<div id="mensajitos">
+		<click-toogle leyenda="esto se va a ocultar"></click-toogle>
+		<click-toogle leyenda="hola"></click-toogle>
+		<ul>
+
+		</ul>
+
+		<hr/>
+	</div>
+	<h1>Segundo</h1>
+	<div>
+
+	</div>
+	
+	<script async type="module" src="../js/boundary/components/ClickToogle.js"></script>
+	<script async type="module">
+		document.querySelector("#mensajitos").addEventListener("eventoocultar",e=>{
+			console.log(e);
+		});
+	</script>
+</body>
+</html>
