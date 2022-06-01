@@ -1,6 +1,6 @@
 class BachesDataAcces{
 	constructor(){
-		this.BASE_URL="http://localhost:8084/Baches/resources/";
+		this.BASE_URL="https://ba1d-168-243-187-199.ngrok.io/BachesRest/resources/";
 	}
 }
 

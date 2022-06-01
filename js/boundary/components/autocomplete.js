@@ -86,7 +86,7 @@ export class litAutocomplete extends LitElement {
 			this._eventReferences.onKeyUp
 		);
 
-		obtenerJSON("https://jsonplaceholder.typicode.com/users")
+    obtenerJSON("https://ba1d-168-243-187-199.ngrok.io/BachesRest/resources/estado")
 			.then((json) => {
 				console.log("el json de respuesta es:", json);
 				this.items = json;
@@ -173,7 +173,7 @@ export class litAutocomplete extends LitElement {
 						this.items
 							.filter(
 								(item) =>
-									item.name
+									item.names
 										.replace(",", "")
 										.replace(/\s/g, "")
 										.toLowerCase()
@@ -313,9 +313,9 @@ export class litAutocomplete extends LitElement {
 				(item) => html`
 				<li
 				@click=${(ev) =>
-						this.autocomplete(item.name, item.value ? item.value : null)}
+						this.autocomplete(item.names, item.value ? item.value : null)}
 				>
-				${item.name}
+				${item.names}
 				</li>
 			`
 			)}
