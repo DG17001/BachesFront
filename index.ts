@@ -1,0 +1,1 @@
+import "./js/boundary/components/autocomplete.js";

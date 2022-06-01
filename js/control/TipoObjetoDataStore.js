@@ -5,7 +5,7 @@ class TipoObjetoDataStore extends BachesDataAcces {
 		super();
 	}
 	findRange(_first=0,_pageSize=50){
-		let promesa=fetch(`${this.BASE_URL}tipoobjeto?first=${_first}&pagesize=${_pageSize}`);
+		let promesa=fetch(`${this.BASE_URL}tipoobjeto/${_first}/${_pageSize}`);
 		return promesa;
 	}
 
