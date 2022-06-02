@@ -12,7 +12,7 @@ function obtenerJSON(url) {
 					return response.json();
 				}
 				reject(
-					"No hemos podido recuperar ese json. El código de respuesta del servidor es: " +
+					"Error al obtener el JSON, el servidor devuelve: " +
 					response.status
 				);
 			})
@@ -86,28 +86,28 @@ export class litAutocomplete extends LitElement {
 			this._eventReferences.onKeyUp
 		);
 
-    obtenerJSON("https://ba1d-168-243-187-199.ngrok.io/BachesRest/resources/estado")
+    obtenerJSON("http://localhost:8084/Baches/resources/estado")
 			.then((json) => {
 				console.log("el json de respuesta es:", json);
 				this.items = json;
 			})
 			.catch((err) => {
-				console.log("Error encontrado:", err);
+				console.log("Se ha producido el siguiente error:", err);
 			});
 	}
 
 	updated(changed) {
-		console.log("updated!!");
+		console.log("¡Actualizado!");
 		if (
-			changed.has("opened") &&
+			changed.has("abierto") &&
 			this.opened &&
 			this._suggestionEl.childElementCount
 		) {
 			for (let item of this._suggestionEl.children) {
-				item.classList.remove("active");
+				item.classList.remove("activado");
 			}
 			this._highlightedEl = this._suggestionEl.children[0];
-			this._highlightedEl.classList.add("active");
+			this._highlightedEl.classList.add("activado");
 		}
 	}
 
@@ -173,7 +173,7 @@ export class litAutocomplete extends LitElement {
 						this.items
 							.filter(
 								(item) =>
-									item.names
+									item.nombre
 										.replace(",", "")
 										.replace(/\s/g, "")
 										.toLowerCase()
@@ -185,7 +185,7 @@ export class litAutocomplete extends LitElement {
 
 					if (suggestions.length === 0) {
 						suggestions = [];
-						suggestions.push({ value: null, text: "Sorry, No matches" });
+						suggestions.push({ value: null, text: "Lo sentimos, no hay coincidencias" });
 					}
 
 					this.suggest(suggestions);
@@ -198,9 +198,9 @@ export class litAutocomplete extends LitElement {
 			return;
 		}
 
-		this._highlightedEl.classList.remove("active");
+		this._highlightedEl.classList.remove("activado");
 		this._highlightedEl = this._highlightedEl.previousElementSibling;
-		this._highlightedEl.classList.add("active");
+		this._highlightedEl.classList.add("activado");
 	}
 
 	_markNextElement() {
@@ -208,13 +208,13 @@ export class litAutocomplete extends LitElement {
 			return;
 		}
 
-		this._highlightedEl.classList.remove("active");
+		this._highlightedEl.classList.remove("activado");
 		this._highlightedEl = this._highlightedEl.nextElementSibling;
-		this._highlightedEl.classList.add("active");
+		this._highlightedEl.classList.add("activado");
 	}
 
 	_onFocus(ev) {
-		console.log("on focus!");
+		console.log("enfocado");
 		this._blur = false;
 		this._matches.length && this.open();
 	}
@@ -238,20 +238,20 @@ export class litAutocomplete extends LitElement {
 	/*********************************/
 
 	open() {
-		console.log("open()");
+		console.log("abierto()");
 		if (this._matches.length) {
 			this.opened = true;
 		}
 	}
 
 	close() {
-		console.log("close()");
+		console.log("cerrado()");
 		this.opened = false;
 		this._highlightedEl = null;
 	}
 
 	suggest(suggestions) {
-		console.log("suggest");
+		console.log("en uso");
 		this._matches = suggestions || [];
 		this._matches.length ? this.open() : this.close();
 		this.requestUpdate();
@@ -313,9 +313,9 @@ export class litAutocomplete extends LitElement {
 				(item) => html`
 				<li
 				@click=${(ev) =>
-						this.autocomplete(item.names, item.value ? item.value : null)}
+						this.autocomplete(item.nombre, item.value ? item.value : null)}
 				>
-				${item.names}
+				${item.nombre}
 				</li>
 			`
 			)}

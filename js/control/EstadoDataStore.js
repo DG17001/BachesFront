@@ -5,7 +5,7 @@ class EstadoDataStore extends BachesDataAcces {
 		super();
 	}
 	findRange(_first=0,_pageSize=50){
-		let promesa=fetch(`${this.BASE_URL}estado/${_first}/${_pageSize}`);
+		let promesa=fetch(`${this.BASE_URL}estado/findRange/${_first}/${_pageSize}`);
 		return promesa;
 	}
 
@@ -22,7 +22,7 @@ class EstadoDataStore extends BachesDataAcces {
 
 export default EstadoDataStore;
 console.log("antes de contar");
-let t=new TipoObjetoDataStore();
+let t=new EstadoDataStore();
 t.contar();
 console.log("despues de contar");
 
