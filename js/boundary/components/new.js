@@ -71,9 +71,8 @@ const template = document.createElement('template');
 		Swal.fire({
 		title: 'Nuevo',
 		html:
-			'<input id="idEstado" class="swal2-input" placeholder="Ingrese un numero entero">' +
+			'<input id="idEstado" class="swal2-input" placeholder="Ingrese un numero">' +
 			'<input id="nombre" class="swal2-input" placeholder="Ingrese un nombre">' +
-			'<input id="fechaCreacion" class="swal2-input" placeholder="ddmmaaaa" >' +
 			'<input id="observaciones" class="swal2-input" placeholder="ingrese un texto">' ,
 		focusConfirm: false,
 		preConfirm: () => {
@@ -83,27 +82,21 @@ const template = document.createElement('template');
 	}
 	
 	function userCreate() {
-		
-		const idEstado = document.getElementById("idEstado").value;
+		const idEstado=document.getElementById("idEstado").value;
 		const nombre = document.getElementById("nombre").value;
-		const fecha = document.getElementById("fechaCreacion").value;
 		const observaciones = document.getElementById("observaciones").value;
 
-		
 		const xhttp = new XMLHttpRequest();
-		xhttp.open("POST", "http://localhost:8084/Baches/resources/estado");
+		xhttp.open("POST", "https://8540-168-243-185-61.ngrok.io/BachesRest/resources/estado/crear?nombre="+nombre);
 		xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 		xhttp.send(JSON.stringify({ 
-		"idEstado": {"idEstado":idEstado}, "nombre":{"nombre":nombre}, "fechaCreacion":fecha, "observaciones":observaciones
+			"nombre":{nombre}
 		}));
 		
 		xhttp.onreadystatechange = function() {
 		console.log("Entro a crear nuevo");
-		
-			
 			console.log("creado");
 			Swal.fire("creado");
 			loadTable();
-		
 		};
 	}
