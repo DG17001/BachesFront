@@ -4,15 +4,50 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>Baches Front</title>
 </head>
 <body>
-	Autocompletar:
-	<lit-autocomplete>
-		<input type="text" placeholder="                        buscar   ">
-	</lit-autocomplete>
+	<div class="container">
+		<div class="d-flex bd-highlight mb-3">
+			<div class="me-auto p-2 bd-highlight"><h2>Estado</div>
+				<div class="p-2 bd-highlight">
+					<my-button label="Create"></my-button>
+				</div>
+			</div>
+			<div>
+				Autocompletar:
+				<lit-autocomplete>
+					<input type="text" placeholder="                        buscar   ">
+				</lit-autocomplete>
+				<br>
+				<br>
+			</div>
+			<div class="table-responsive">
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">IdEstado</th>
+							<th scope="col">Nombre</th>
+							<th scope="col">Actual</th>
+							<th scope="col">FechaCreacion</th>
+							<th scope="col">Observaciones</th>
+						</tr>
+					</thead>
+					<tbody id="mytable">
+						<formulario-inicial></formulario-inicial>
+						<tr>
+							<th scope="row" colspan="5">Analizando...</th>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>		
+	</div>
+
 	<script type="module" src="./js/control/EstadoDataStore.js"></script>
 	<script type="module" src="./js/control/BachesDataAcces.js"></script>
-	<script type="module" src="./js/boundary/components/autocomplete.js"></script>
+	<script type="module" src="./js/boundary/components/ACEstado.js"></script>
+	<script type="module" src="./js/boundary/components/new.js"></script>
+	<script type="module" src="./js/boundary/components/formulario.js"></script>
 </body>
 </html>

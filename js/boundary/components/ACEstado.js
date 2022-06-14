@@ -86,7 +86,7 @@ export class litAutocomplete extends LitElement {
 			this._eventReferences.onKeyUp
 		);
 
-    obtenerJSON("http://localhost:8084/Baches/resources/estado")
+    obtenerJSON("https://62a3ee1f259aba8e10dfb62b.mockapi.io/estado")
 			.then((json) => {
 				console.log("el json de respuesta es:", json);
 				this.items = json;
@@ -95,7 +95,7 @@ export class litAutocomplete extends LitElement {
 				console.log("Se ha producido el siguiente error:", err);
 			});
 	}
-
+	
 	updated(changed) {
 		console.log("¡Actualizado!");
 		if (
@@ -190,6 +190,7 @@ export class litAutocomplete extends LitElement {
 
 					this.suggest(suggestions);
 				}
+				
 		}
 	}
 
@@ -246,6 +247,8 @@ export class litAutocomplete extends LitElement {
 
 	close() {
 		console.log("cerrado()");
+		this.items=[];
+        this.lista(this.items);
 		this.opened = false;
 		this._highlightedEl = null;
 	}
