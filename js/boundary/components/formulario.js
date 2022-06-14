@@ -28,10 +28,10 @@ class formulario extends HTMLElement {
 				trHTML += '<my-button-del label="Del" valueid='+object['idEstado']+'></my-button-del></td>';
 				trHTML += "</tr>";
 			}
-			document.getElementById("mytable").innerHTML = trHTML;
+			document.getElementById("table").innerHTML = trHTML;
 		}
 	};
 }
 export {loadTable};
 
-window.customElements.define("formulario", formulario);
+window.customElements.define("f-", formulario);

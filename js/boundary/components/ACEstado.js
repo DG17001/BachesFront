@@ -247,8 +247,6 @@ export class litAutocomplete extends LitElement {
 
 	close() {
 		console.log("cerrado()");
-		this.items=[];
-        this.lista(this.items);
 		this.opened = false;
 		this._highlightedEl = null;
 	}

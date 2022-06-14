@@ -23,9 +23,10 @@ const template = document.createElement('template');
 
 		box-sizing: border-box;
 		border: 1px solid #a1a1a1;
-		background: #5CEC6D;
+		background: #f5165d;
 		box-shadow: 0 2px 4px 0 rgba(0,0,0, 0.05), 0 2px 8px 0 rgba(161,161,161, 0.4);
-		color: #363636;
+		color: #363636
+		;
 		}
 	</style>
 
@@ -70,10 +71,10 @@ const template = document.createElement('template');
 		Swal.fire({
 		title: 'Nuevo',
 		html:
-			'<input id="idEstado" class="swal2-input" placeholder="1,2,3">' +
-			'<input id="nombre" class="swal2-input" placeholder="prueba">' +
-			'<input id="fechaCreacion" class="swal2-input" placeholder="12062022">' +
-			'<input id="observaciones" class="swal2-input" placeholder="Funcionara">' ,
+			'<input id="idEstado" class="swal2-input" placeholder="Ingrese un numero entero">' +
+			'<input id="nombre" class="swal2-input" placeholder="Ingrese un nombre">' +
+			'<input id="fechaCreacion" class="swal2-input" placeholder="ddmmaaaa" >' +
+			'<input id="observaciones" class="swal2-input" placeholder="ingrese un texto">' ,
 		focusConfirm: false,
 		preConfirm: () => {
 			userCreate();

@@ -4,14 +4,29 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+	<link href="index.css" rel="stylesheet">
 	<title>Baches Front</title>
+	<style>
+		footer {
+			text-align: center;
+			padding: 3px;
+			background-color: rgb(233, 122, 122);
+			color: white;
+			display: block;
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			height: 70px;
+		}
+		</style>
 </head>
 <body>
 	<div class="container">
 		<div class="d-flex bd-highlight mb-3">
 			<div class="me-auto p-2 bd-highlight"><h2>Estado</div>
 				<div class="p-2 bd-highlight">
-					<my-button label="Create"></my-button>
+					<my-button label="Nuevo"></my-button>
 				</div>
 			</div>
 			<div>
@@ -33,8 +48,8 @@
 							<th scope="col">Observaciones</th>
 						</tr>
 					</thead>
-					<tbody id="mytable">
-						<formulario-inicial></formulario-inicial>
+					<tbody id="table">
+						<formulario></formulario>
 						<tr>
 							<th scope="row" colspan="5">Analizando...</th>
 						</tr>
@@ -42,12 +57,20 @@
 				</table>
 			</div>
 		</div>		
-	</div>
-
+	</div>	
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.16/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 	<script type="module" src="./js/control/EstadoDataStore.js"></script>
 	<script type="module" src="./js/control/BachesDataAcces.js"></script>
 	<script type="module" src="./js/boundary/components/ACEstado.js"></script>
 	<script type="module" src="./js/boundary/components/new.js"></script>
 	<script type="module" src="./js/boundary/components/formulario.js"></script>
 </body>
+<footer>
+	<p style="padding: 0%;">
+		Tecnicas de Programacion en Internet
+		<br>
+		2022
+	</p>
+</footer>
 </html>
