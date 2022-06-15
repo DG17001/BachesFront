@@ -52,6 +52,12 @@ const template = document.createElement('template');
 		set label(value) {
 			this.setAttribute('label', value);
 		}
+		get valueid(){
+			return this.getAttribute('valueid');
+		}
+		set valueid(value){
+			this.setAttribute('valueid', value);    
+		}
 		static get observedAttributes() {
 			return ['label'];
 		}
@@ -67,28 +73,28 @@ const template = document.createElement('template');
 	window.customElements.define('boton-editar', ButtonUpdate);
 	import {loadTable} from './formulario.js';
 	
-	function showUserUpdateBox() {
-		console.log()
+	function showUserUpdateBox(id) {
+		console.log(id)
 		const xhttp = new XMLHttpRequest();
-		xhttp.open("GET", "https://62a89485ec36bf40bda96f1b.mockapi.io/Baches/resources/estado");
+		xhttp.open("GET", "https://62a89485ec36bf40bda96f1b.mockapi.io/Baches/resources/estado/"+id);
 		xhttp.send();
 		xhttp.onreadystatechange = function() {
-			
+			//if (this.readyState == 4 && this.status == 200) {
 				const objects = JSON.parse(this.responseText);
 				const user = objects;
 				console.log(user);
 				Swal.fire({
 					title: 'Modificar',
 					html:
-					'<input id="idEstado" class="swal2-input" placeholder="First" value="'+user['idEstadp']+'" disabled>' +
-					'<input id="nombre" class="swal2-input" placeholder="First" value="">'+user["nombre"]+'">'+
-					'<input id="observacion" class="swal2-input" placeholder="ingrese un texto">'+user["observaciones"]+'">',
+					'<input id="idEstado" class="swal2-input" placeholder="First" value="'+user['idEstado']+'" disabled>' +
+					'<input id="nombre" class="swal2-input" placeholder="First" value="'+user['nombre']+'">'+
+					'<input id="observacion" class="swal2-input" placeholder="ingrese un texto"'+user["observaciones"]+'">',
 				focusConfirm: false,
 				preConfirm: () => {
 					userUpdate();
 				}
 			})
-		
+		//}
 	};
 }
 	
@@ -105,7 +111,7 @@ const template = document.createElement('template');
 		}));
 		
 		xhttp.onreadystatechange = function() {
-			if (this.readyState == 4) {
+			if (this.readyState == 4 && this.status == 200) {
 			//const objects = JSON.parse(this.responseText);
 			console.log("Entro a modificar");
 			console.log("modificado");

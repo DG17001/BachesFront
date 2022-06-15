@@ -23,8 +23,8 @@ class formulario extends HTMLElement {
 				trHTML += '<td>'+object['nombre']+'</td>';
 				trHTML += '<td>'+object['fechaCreacion']+'</td>';
 				trHTML += '<td>'+object['observaciones']+'</td>';
-				trHTML += '<td><boton-editar label="Edit" valueid='+object['idEstado']+'></boton-editar><td>';
-				trHTML += '<td><boton-eliminar label="🗑" valueid='+object['idEstado']+'></boton-eliminar></td>';
+				trHTML += '<td><boton-editar label="🖋" valueid='+object['idEstado']+'></boton-editar></td>';
+				trHTML += '<td><boton-eliminar label="⛔" valueid='+object['idEstado']+'></boton-eliminar></td>';
 				trHTML += "</tr>";
 			}
 			document.getElementById("table").innerHTML = trHTML;
