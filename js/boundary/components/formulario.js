@@ -9,8 +9,7 @@ class formulario extends HTMLElement {
 
     function loadTable() {
     const xhttp = new XMLHttpRequest();
-    //cambiar para nuestra api
-    xhttp.open("GET", "https://8540-168-243-185-61.ngrok.io/BachesRest/resources/estado");
+    xhttp.open("GET", "https://62a89485ec36bf40bda96f1b.mockapi.io/Baches/resources/estado");
     xhttp.send();
     
     xhttp.onreadystatechange = function() {
@@ -24,8 +23,8 @@ class formulario extends HTMLElement {
 				trHTML += '<td>'+object['nombre']+'</td>';
 				trHTML += '<td>'+object['fechaCreacion']+'</td>';
 				trHTML += '<td>'+object['observaciones']+'</td>';
-				trHTML += '<td><my-button-edit label="Edit" valueid='+object['idEstado']+'></my-button-edit>';
-				trHTML += '<my-button-del label="Del" valueid='+object['idEstado']+'></my-button-del></td>';
+				trHTML += '<td><boton-editar label="Edit" valueid='+object['idEstado']+'></boton-editar><td>';
+				trHTML += '<td><boton-eliminar label="🗑" valueid='+object['idEstado']+'></boton-eliminar></td>';
 				trHTML += "</tr>";
 			}
 			document.getElementById("table").innerHTML = trHTML;

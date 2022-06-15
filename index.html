@@ -8,27 +8,34 @@
 	<link href="index.css" rel="stylesheet">
 	<title>Baches Front</title>
 	<style>
+		.container{
+			min-height:calc(100vh -70px);
+		}
 		footer {
 			text-align: center;
 			padding: 3px;
 			background-color: rgb(233, 122, 122);
 			color: white;
 			display: block;
-			position: absolute;
+			position: fixed;
 			bottom: 0;
 			width: 100%;
 			height: 70px;
 		}
+
 		</style>
 </head>
 <body>
 	<div class="container">
 		<div class="d-flex bd-highlight mb-3">
 			<div class="me-auto p-2 bd-highlight"><h2>Estado</div>
-				<div class="p-2 bd-highlight">
-					<my-button label="Nuevo"></my-button>
-				</div>
 			</div>
+			<div class="d-flex">
+				<boton-crear label="Nuevo" class="button"></boton-crear>
+				<boton-eliminar label="Eliminar"></boton-eliminar>
+				<boton-editar label="Editar"></boton-editar>
+			</div>
+			<br>
 			<div>
 				Autocompletar:
 				<lit-autocomplete>
@@ -57,19 +64,21 @@
 			</div>
 		</div>		
 	</div>	
+	<!--footer>
+		<p style="padding: 0%;">
+			Tecnicas de Programacion en Internet
+			<br>
+			2022
+		</p>
+	</footer-->
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.16/dist/sweetalert2.all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 	<script type="module" src="./js/control/EstadoDataStore.js"></script>
 	<script type="module" src="./js/control/BachesDataAcces.js"></script>
 	<script type="module" src="./js/boundary/components/ACEstado.js"></script>
 	<script type="module" src="./js/boundary/components/new.js"></script>
+	<script type="module" src="./js/boundary/components/delete.js"></script>
+	<script type="module" src="./js/boundary/components/update.js"></script>
 	<script type="module" src="./js/boundary/components/formulario.js"></script>
 </body>
-<footer>
-	<p style="padding: 0%;">
-		Tecnicas de Programacion en Internet
-		<br>
-		2022
-	</p>
-</footer>
 </html>
