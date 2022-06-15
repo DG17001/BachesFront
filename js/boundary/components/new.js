@@ -71,7 +71,6 @@ const template = document.createElement('template');
 		Swal.fire({
 		title: 'Nuevo',
 		html:
-			'<input id="idEstado" class="swal2-input" placeholder="Ingrese un numero">' +
 			'<input id="nombre" class="swal2-input" placeholder="Ingrese un nombre">' +
 			'<input id="observacion" class="swal2-input" placeholder="ingrese un texto">' ,
 		focusConfirm: false,
@@ -82,15 +81,14 @@ const template = document.createElement('template');
 	}
 	
 	function userCreate() {
-		const idEstado=document.getElementById("idEstado").value;
 		const nombre = document.getElementById("nombre").value;
-		const observaciones = document.getElementById("observaciones").value;
+		const observacion = document.getElementById("observacion").value;
 
 		const xhttp = new XMLHttpRequest();
-		xhttp.open("POST", "https://62a89485ec36bf40bda96f1b.mockapi.io/Baches/resources/estado?nombre="+nombre+"&observacion="+observaciones);
+		xhttp.open("POST", "https://33df-168-243-185-61.ngrok.io/BachesRest/resources/estado/crear?nombre="+nombre+"&observacion="+observacion);
 		xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 		xhttp.send(JSON.stringify({ 
-			"nombre":{nombre}, "observacion":{observaciones}
+			"nombre":{nombre}, "observacion":{observacion}
 		}));
 		
 		xhttp.onreadystatechange = function() {

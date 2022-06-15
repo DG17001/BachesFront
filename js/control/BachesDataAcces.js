@@ -1,6 +1,6 @@
 class BachesDataAcces{
 	constructor(){
-		this.BASE_URL="http://localhost:8084/Baches/resources/";
+		this.BASE_URL="https://62a89485ec36bf40bda96f1b.mockapi.io/Baches/resources";
 	}
 }
 

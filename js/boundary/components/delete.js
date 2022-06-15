@@ -68,7 +68,7 @@ const template = document.createElement('template');
 	this.render();
 	}
 	render() {
-	this.$button.innerHTML = this.label;
+		this.$button.innerHTML = this.label;
 	}
 	}
 
@@ -87,7 +87,6 @@ const template = document.createElement('template');
 			const objects = JSON.parse(this.responseText);
 			console.log("eliminado");
 			loadTable();
-			
-			} 
+		} 
 	};
-	}
+}
