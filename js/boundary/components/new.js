@@ -65,7 +65,6 @@ const template = document.createElement('template');
 	}
 
 	window.customElements.define('boton-crear', Button);
-	// modificar para nuestra api con respecto a los campos a enviar
 	import {loadTable} from './formulario.js';
 	function showUserCreateBox() {
 		Swal.fire({

@@ -35,7 +35,7 @@ const template = document.createElement('template');
 	</div>
 	`;
 
-	class ButtonEdit extends HTMLElement {
+	class ButtonUpdate extends HTMLElement {
 		constructor() {
 			super();
 	
@@ -70,7 +70,7 @@ const template = document.createElement('template');
 		}
 	}
 	
-	window.customElements.define('boton-editar', ButtonEdit);
+	window.customElements.define('boton-editar', ButtonUpdate);
 	import {loadTable} from './formulario.js';
 	
 	function showUserUpdateBox(id) {
@@ -80,7 +80,7 @@ const template = document.createElement('template');
 		xhttp.send();
 		xhttp.onreadystatechange = function() {
 			//if (this.readyState == 4 && this.status == 200) {
-				const objects = JSON.parse(this.responseText);
+				const objects = JSON.parse(this.response);
 				const user = objects;
 				console.log(user);
 				Swal.fire({
@@ -88,7 +88,7 @@ const template = document.createElement('template');
 					html:
 					'<input id="idEstado" class="swal2-input" placeholder="First" value="'+user['idEstado']+'" disabled>' +
 					'<input id="nombre" class="swal2-input" placeholder="First" value="'+user['nombre']+'">'+
-					'<input id="observaciones" class="swal2-input" placeholder="ingrese un texto"'+user["observaciones"]+'">',
+					'<input id="observaciones" class="swal2-input" placeholder="Ingrese una observacion" value="'+user["observaciones"]+'">',
 				focusConfirm: false,
 				preConfirm: () => {
 					userUpdate();
@@ -104,7 +104,7 @@ const template = document.createElement('template');
 		const observaciones = document.getElementById("observaciones").value;
 
 		const xhttp = new XMLHttpRequest();
-		xhttp.open("PUT", "https://62a89485ec36bf40bda96f1b.mockapi.io/Baches/resources/estado/modificar?id="+idEstado+"&nombre="+nombre+"&observacion="+observaciones);
+		xhttp.open("PUT", "https://62a89485ec36bf40bda96f1b.mockapi.io/Baches/resources/estado/id="+idEstado+"&nombre="+nombre+"&observacion="+observaciones);
 		xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 		xhttp.send(JSON.stringify({ 
 			"id":id,"nombre":{nombre}, "observacion":{observaciones}
