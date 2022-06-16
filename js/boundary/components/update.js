@@ -35,7 +35,7 @@ const template = document.createElement('template');
 	</div>
 	`;
 
-	class ButtonUpdate extends HTMLElement {
+	class ButtonEdit extends HTMLElement {
 		constructor() {
 			super();
 	
@@ -43,7 +43,7 @@ const template = document.createElement('template');
 			this._shadowRoot.appendChild(template.content.cloneNode(true));
 			this.$button = this._shadowRoot.querySelector('button');
 			this.$button.addEventListener('click', () => {
-				showUserUpdateBox();
+				showUserUpdateBox(this.valueid);
 			});
 		}
 		get label() {
@@ -70,7 +70,7 @@ const template = document.createElement('template');
 		}
 	}
 	
-	window.customElements.define('boton-editar', ButtonUpdate);
+	window.customElements.define('boton-editar', ButtonEdit);
 	import {loadTable} from './formulario.js';
 	
 	function showUserUpdateBox(id) {
@@ -88,7 +88,7 @@ const template = document.createElement('template');
 					html:
 					'<input id="idEstado" class="swal2-input" placeholder="First" value="'+user['idEstado']+'" disabled>' +
 					'<input id="nombre" class="swal2-input" placeholder="First" value="'+user['nombre']+'">'+
-					'<input id="observacion" class="swal2-input" placeholder="ingrese un texto"'+user["observaciones"]+'">',
+					'<input id="observaciones" class="swal2-input" placeholder="ingrese un texto"'+user["observaciones"]+'">',
 				focusConfirm: false,
 				preConfirm: () => {
 					userUpdate();
@@ -99,15 +99,15 @@ const template = document.createElement('template');
 }
 	
 	function userUpdate() {
-		const idEstado=document.getElementById("idEstado").value;
+		const id=document.getElementById("idEstado").value;
 		const nombre = document.getElementById("nombre").value;
 		const observaciones = document.getElementById("observaciones").value;
 
 		const xhttp = new XMLHttpRequest();
-		xhttp.open("PUT", "https://62a89485ec36bf40bda96f1b.mockapi.io/Baches/resources/estado/modificar?idEstado="+idEstado+"&nombre="+nombre+"&observacion="+observaciones);
+		xhttp.open("PUT", "https://62a89485ec36bf40bda96f1b.mockapi.io/Baches/resources/estado/modificar?id="+idEstado+"&nombre="+nombre+"&observacion="+observaciones);
 		xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 		xhttp.send(JSON.stringify({ 
-			"idEstado":idEstado,"nombre":{nombre}, "observacion":{observaciones}
+			"id":id,"nombre":{nombre}, "observacion":{observaciones}
 		}));
 		
 		xhttp.onreadystatechange = function() {

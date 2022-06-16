@@ -5,7 +5,11 @@ class formulario extends HTMLElement {
     connectedCallback() {
 		loadTable();
     }
-}
+	
+	}
+	addEventListener("load", ()=>{
+		loadTable();
+	})
 
     function loadTable() {
     const xhttp = new XMLHttpRequest();
