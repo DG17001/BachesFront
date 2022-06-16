@@ -1,84 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-	<link href="index.css" rel="stylesheet">
-	<title>Baches Front</title>
-	<style>
-		.container{
-			min-height:calc(100vh -70px);
-		}
-		footer {
-			text-align: center;
-			padding: 3px;
-			background-color: rgb(233, 122, 122);
-			color: white;
-			display: block;
-			position: fixed;
-			bottom: 0;
-			width: 100%;
-			height: auto;
-			padding-top: 0px;
-			padding-bottom: 0%;
-		}
+	<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-		</style>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <title>Baches Front</title>
+
+    <link href="index.css" rel="stylesheet">
 </head>
 <body>
-	<div class="container" style="padding-bottom:5%;">
-		<div class="d-flex bd-highlight mb-3">
-			<div class="me-auto p-2 bd-highlight"><h2>Estado</div>
-			</div>
-			<div class="d-flex">
-				<boton-crear label="Nuevo" "></boton-crear>
-			</div>
-			<br>
-			<div>
-				Autocompletar:
-				<lit-autocomplete>
-					<input type="text" placeholder="                        buscar   ">
-				</lit-autocomplete>
-				<br>
-				<br>
-			</div>
-			<div class="table-responsive">
-				<table class="table">
-					<thead>
-						<tr>
-							<th scope="col">IdEstado</th>
-							<th scope="col">Nombre</th>
-							<th scope="col">FechaCreacion</th>
-							<th scope="col">Observaciones</th>
-						</tr>
-					</thead>
-					<tbody id="table">
-						<formulario></formulario>
-						<tr>
-							<th scope="row" colspan="5">Analizando...</th>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</div>		
-	</div>	
-	<footer>
-		<p style="padding-bottom: 0%; margin-bottom: 0%;font-size: large; ">
-			Tecnicas de Programacion en Internet
-			<br>
-			2022
-		</p>
-	</footer>
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.16/dist/sweetalert2.all.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-	<script type="module" src="./js/control/EstadoDataStore.js"></script>
-	<script type="module" src="./js/control/BachesDataAcces.js"></script>
-	<script type="module" src="./js/boundary/components/ACEstado.js"></script>
-	<script type="module" src="./js/boundary/components/new.js"></script>
-	<script type="module" src="./js/boundary/components/delete.js"></script>
-	<script type="module" src="./js/boundary/components/update.js"></script>
-	<script type="module" src="./js/boundary/components/formulario.js"></script>
+	<div style="padding-top:15px; padding-left:15px;">
+		<h1>Baches Front</h1>
+	</div>
+	<div class="my-4">
+		<button id="estado" class="btn btn-primary mx-3" onclick="window.location.href='estado.html'">Estado</button>
+		<br>
+		<button id="objeto" class="btn btn-primary mx-3" onclick="window.location.href='objeto.html'">Objeto</button>
+		<br>
+		<button id="objetoestado" class="btn btn-primary mx-3" onclick="window.location.href='objetoestado.html'">ObjetoEstado</button>
+		<br>
+		<button id="ruta" class="btn btn-primary mx-3" onclick="window.location.href='ruta.html'">Ruta</button>
+		<br>
+		<button id="tipoojeto" class="btn btn-primary mx-3" onclick="window.location.href='tipoobjeto.html'">TipoObjeto</button>
+    </div>
+
 </body>
 </html>
+<style>
+	.btn{
+		color: #0099CC;
+		background: transparent;
+		border: 2px solid #0099CC;
+		border-radius: 6px;
+		border: none;
+		color: white;
+		padding: 16px 32px;
+		text-align: center;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+		-webkit-transition-duration: 0.4s; /* Safari */
+		transition-duration: 0.4s;
+		cursor: pointer;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+	#estado{
+		background-color: white; 
+		color: black; 
+		border: 2px solid #008CBA;
+	}
+	#objeto{
+		background-color: white; 
+		color: black; 
+		border: 2px solid #8400ff;
+	}
+	#objetoestado{
+		background-color: white; 
+		color: black; 
+		border: 2px solid #cc00ff;
+	}
+	#ruta{
+		background-color: white; 
+		color: black; 
+		border: 2px solid #ff2600;
+	}
+	#tipoojeto{
+		background-color: white; 
+		color: black; 
+		border: 2px solid #ffb20d;
+	}
+	#estado:hover{
+		background-color: #008CBA;
+		color: white;
+	}
+	#objeto:hover{
+		background-color: #8400ff;
+		color: white;
+	}
+	#objetoestado:hover{
+		background-color: #cc00ff	;
+		color: white;
+	} 
+	#ruta:hover{
+		background-color: #ff2600;
+		color: white;
+	}
+	#tipoojeto:hover{
+		background-color: #ffb20d;
+		color: white;
+	}
+</style>

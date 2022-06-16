@@ -19,7 +19,7 @@ const template = document.createElement('template');
 		outline: none;
 		border-radius: 15px;
 
-		width: 100%;
+		width: 60%;
 		height: 40px;
 
 		box-sizing: border-box;
@@ -77,7 +77,7 @@ const template = document.createElement('template');
 	import {loadTable} from './formulario.js';
 	function userDelete(id) {
 		const xhttp = new XMLHttpRequest();
-		xhttp.open("DELETE", "https://62a89485ec36bf40bda96f1b.mockapi.io/Baches/resources/estado/"+id);
+		xhttp.open("DELETE", "https://267f-168-243-180-166.ngrok.io/BachesRest/resources/ruta/eliminar/id="+id);
 		xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 		xhttp.send(JSON.stringify({ 
 			"id": id

@@ -84,7 +84,7 @@ const template = document.createElement('template');
 		const observacion = document.getElementById("observacion").value;
 
 		const xhttp = new XMLHttpRequest();
-		xhttp.open("POST", "https://33df-168-243-185-61.ngrok.io/BachesRest/resources/estado/crear?nombre="+nombre+"&observacion="+observacion);
+		xhttp.open("POST", "https://33df-168-243-185-61.ngrok.io/BachesRest/resources/ruta/crear?nombre="+nombre+"&observacion="+observacion);
 		xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 		xhttp.send(JSON.stringify({ 
 			"nombre":{nombre}, "observacion":{observacion}

@@ -19,7 +19,7 @@ const template = document.createElement('template');
 		outline: none;
 		border-radius: 15px;
 
-		width: 100%;
+		width: 70%;
 		height: 40px;
 
 		box-sizing: border-box;
@@ -76,7 +76,7 @@ const template = document.createElement('template');
 	function showUserUpdateBox(id) {
 		console.log(id)
 		const xhttp = new XMLHttpRequest();
-		xhttp.open("GET", "https://62a89485ec36bf40bda96f1b.mockapi.io/Baches/resources/estado/"+id);
+		xhttp.open("GET", "https://267f-168-243-180-166.ngrok.io/BachesRest/resources/objeto/findById/"+id);
 		xhttp.send();
 		xhttp.onreadystatechange = function() {
 			//if (this.readyState == 4 && this.status == 200) {
@@ -86,8 +86,11 @@ const template = document.createElement('template');
 				Swal.fire({
 					title: 'Modificar',
 					html:
-					'<input id="idEstado" class="swal2-input" placeholder="First" value="'+user['idEstado']+'" disabled>' +
+					'<input id="idObjeto" class="swal2-input" placeholder="First" value="'+user['idObjeto']+'" disabled>' +
+					'<input id="idTipoObjeto" class="swal2-input" placeholder="First" value="'+user['idTipoObjeto']+'" disabled>' +
 					'<input id="nombre" class="swal2-input" placeholder="First" value="'+user['nombre']+'">'+
+					'<input id="latitud" class="swal2-input" placeholder="First" value="'+user['latitud']+'">'+
+					'<input id="longitud" class="swal2-input" placeholder="First" value="'+user['longitud']+'">'+
 					'<input id="observaciones" class="swal2-input" placeholder="Ingrese una observacion" value="'+user["observaciones"]+'">',
 				focusConfirm: false,
 				preConfirm: () => {
@@ -99,15 +102,17 @@ const template = document.createElement('template');
 }
 	
 	function userUpdate() {
-		const id=document.getElementById("idEstado").value;
+		const id=document.getElementById("idObjeto").value;
 		const nombre = document.getElementById("nombre").value;
+		const latitud = document.getElementById("latitud").value;
+		const longitud = document.getElementById("longitud").value;
 		const observaciones = document.getElementById("observaciones").value;
 
 		const xhttp = new XMLHttpRequest();
-		xhttp.open("PUT", "https://62a89485ec36bf40bda96f1b.mockapi.io/Baches/resources/estado/id="+idEstado+"&nombre="+nombre+"&observacion="+observaciones);
+		xhttp.open("PUT", "https://267f-168-243-180-166.ngrok.io/BachesRest/resources/objeto/crear/id="+id+"&nombre="+nombre+"&latitud="+latitud+"&longitud="+longitud);
 		xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 		xhttp.send(JSON.stringify({ 
-			"id":id,"nombre":{nombre}, "observacion":{observaciones}
+			"id":id,"nombre":{nombre}, "latitud":{latitud},"longitud":{longitud}
 		}));
 		
 		xhttp.onreadystatechange = function() {

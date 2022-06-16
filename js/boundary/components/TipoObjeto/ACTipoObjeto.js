@@ -86,7 +86,7 @@ export class litAutocomplete extends LitElement {
 			this._eventReferences.onKeyUp
 		);
 
-    obtenerJSON("https://62a89485ec36bf40bda96f1b.mockapi.io/Baches/resources/estado")
+    obtenerJSON("https://62ab41acbd0e5d29af0be3bc.mockapi.io/Baches/resources/tipoobjeto")
 			.then((json) => {
 				console.log("el json de respuesta es:", json);
 				this.items = json;
