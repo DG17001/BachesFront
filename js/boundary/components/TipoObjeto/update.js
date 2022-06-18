@@ -109,10 +109,8 @@ const template = document.createElement('template');
 		
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
-			//const objects = JSON.parse(this.responseText);
 			console.log("Entro a modificar");
 			console.log("modificado");
-			//
 			loadTable();			
 			};
 	}

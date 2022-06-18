@@ -79,12 +79,9 @@ const template = document.createElement('template');
 		const xhttp = new XMLHttpRequest();
 		xhttp.open("DELETE", "https://267f-168-243-180-166.ngrok.io/BachesRest/resources/ruta/eliminar/id="+id);
 		xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-		xhttp.send(JSON.stringify({ 
-			"id": id
-		}));
+		xhttp.send();
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4) {
-			const objects = JSON.parse(this.responseText);
 			console.log("eliminado");
 			loadTable();
 		} 
